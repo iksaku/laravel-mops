@@ -1,0 +1,47 @@
+/*
+ * Inject CSS normalization for TailwindCSS, which uses
+ * normalize.css and some Tailwind defaults.
+ */
+@tailwind base;
+
+/*
+ * Taken from https://github.com/laravel-frontend-presets/tall
+ *
+ * Removes default box shadow for invalid elements to prevent
+ * inputs in Livewire's components showing with a red border
+ * by default.
+ */
+input:invalid, textarea:invalid, select:invalid {
+    box-shadow: none;
+}
+
+/*
+ * Inject component classes defined by TailwindCSS plugins.
+ */
+@tailwind components;
+
+/*
+ * This is where you can define all your CSS components.
+ * Component classes like .btn or .form-input can be created here.
+ */
+
+/*
+ * Inject utility classes defined by TailwindCSS plugins.
+ */
+@tailwind utilities;
+
+/*
+ * This is where you can define all your CSS utilities.
+ * Utility classes are intended for simplifying your workflow,
+ * but are simple enough to not be considered a component by itself.
+ */
+
+/*
+ * This property is used by AlpineJS to hide components before initialization.
+ * Useful when creating dropdown menus or collapsable boxes.
+ */
+[x-cloak] {
+    display: none;
+}
+
+

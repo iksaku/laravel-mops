@@ -1,0 +1,35 @@
+{
+    "name": "iksaku/laravel-mops",
+    "description": "My Opinionated Scaffolding for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jorge González",
+            "email": "yo@jorgeglz.io"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.4",
+        "illuminate/support": "^8.0",
+        "laravel/fortify": "^1.0",
+        "jenssegers/agent": "^2.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "iksaku\\Laravel\\Mops\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "iksaku\\Laravel\\Mops\\MopsServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "laravel/sanctum": "^2.6"
+    }
+}
