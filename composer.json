@@ -13,6 +13,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.4",
+        "ext-json": "*",
         "illuminate/support": "^8.0",
         "laravel/fortify": "^1.0",
         "jenssegers/agent": "^2.6"

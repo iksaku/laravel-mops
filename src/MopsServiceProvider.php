@@ -36,7 +36,8 @@ class MopsServiceProvider extends ServiceProvider
         if (!$this->app->runningInConsole()) return;
 
         $this->commands([
-            Console\InstallCommand::class
+            Console\InstallCommand::class,
+            Console\UpgradeLaravelMixCommand::class
         ]);
     }
 }
