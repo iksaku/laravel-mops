@@ -112,7 +112,7 @@ class InstallCommand extends Command
 
         // Determine if the opt-in Laravel Mix upgrade was also chosen.
         if ($this->hasOption('upgrade-mix')) {
-            $this->callSilent('mops:upgrade-mix');
+            $this->call('mops:upgrade-mix');
         }
 
         // Use Yarn instead of NPM

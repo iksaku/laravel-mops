@@ -35,16 +35,15 @@ class UpgradeLaravelMixCommand extends Command
             ]
         ), 'scripts');
 
-        if (env('INSTALLING-MOPS', false)) {
-            // Skip yarn install process, since it'll be done with the Installation command anyways
-            return;
+        if (!env('INSTALLING-MOPS', false)) {
+            // Install Yarn packages
+            (new Process(['yarn', 'install'], base_path()))
+                ->setTimeout(null)
+                ->run(function ($type, $output) {
+                    $this->output->write($output);
+                });
         }
 
-        // Install Yarn packages
-        (new Process(['yarn', 'install'], base_path()))
-            ->setTimeout(null)
-            ->run(function ($type, $output) {
-                $this->output->write($output);
-            });
+        $this->warn('Make sure to read the Laravel Mix v6 upgrade guide: https://github.com/JeffreyWay/laravel-mix/blob/master/UPGRADE.md');
     }
 }
