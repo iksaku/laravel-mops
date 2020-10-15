@@ -2,6 +2,7 @@
 
 namespace iksaku\Laravel\Mops;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class MopsServiceProvider extends ServiceProvider
@@ -21,12 +22,14 @@ class MopsServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'mops');
 
-        // Blade::componentNamespace('iksaku\Laravel\Mops\Components', 'mops');
+        Blade::componentNamespace('iksaku\Laravel\Mops\Components', 'mops');
         
         $this->registerCommands();
 
         $this->publishes([
+            // TODO: Research the possibility to override Component Classes
             // __DIR__.'/View/Components' => app_path('View/Components'),
+
             __DIR__.'/../resources/views' => resource_path('views/vendor/mops')
         ], 'mops-components');
     }

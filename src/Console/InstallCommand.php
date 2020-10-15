@@ -74,7 +74,7 @@ class InstallCommand extends Command
     protected function configureTallStack()
     {
         // Install Livewire and Sanctum.
-        (new Process(['composer', 'require', 'livewire/livewire:^2.3', 'laravel/sanctum:^2.6'], base_path()))
+        (new Process(['composer', 'require', 'livewire/livewire:^2.3.0', 'laravel/sanctum:^2.6.0'], base_path()))
             ->setTimeout(null)
             ->run(function ($type, $output) {
                 $this->output->write($output);

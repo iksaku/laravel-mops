@@ -31,11 +31,11 @@ tweaking and opinions (just as I did with this repo :wink:).
 ## Installation
 Simply run the following commands:
 ```sh
-composer require livewire/livewire iksaku/laravel-mops
+composer require iksaku/laravel-mops
 php artisan mops:install
 yarn install
 ```
 
-This will install all required NPM packages and publish my UI and Component scaffolding in your Laravel Application.
+This will install all required Composer and NPM packages and publish my UI and Component scaffolding in your Laravel Application.
 
 Beware that overrides may occur if you're not in a fresh Laravel installation.

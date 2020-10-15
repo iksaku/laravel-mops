@@ -1,3 +1,5 @@
+const variants = require('tailwindcss/defaultConfig').variants;
+
 module.exports = {
     future: {
         // Upcoming changes for TailwindCSS v2
@@ -9,7 +11,9 @@ module.exports = {
 
     theme: {},
 
-    variants: {},
+    variants: {
+        padding: [...variants.padding, 'first', 'last'],
+    },
 
     purge: {
         content: [
@@ -17,6 +21,7 @@ module.exports = {
             './resources/**/*.blade.php',
 
             // Mops Stuff
+            './vendor/iksaku/laravel-mops/src/View/**/*.php',
             './vendor/iksaku/laravel-mops/**/*.blade.php'
         ],
     },

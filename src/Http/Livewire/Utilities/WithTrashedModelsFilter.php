@@ -1,6 +1,6 @@
 <?php
 
-namespace iksaku\Laravel\Mops\Http\Livewire\Shared;
+namespace iksaku\Laravel\Mops\Http\Livewire\Utilities;
 
 trait WithTrashedModelsFilter
 {
