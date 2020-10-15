@@ -2,16 +2,12 @@
 
 namespace iksaku\Laravel\Mops\Http\Livewire\Utilities;
 
+/**
+ * @property-read array<string, string> $trashedFilters
+ */
 trait WithTrashedModelsFilter
 {
     public string $trashed = 'withoutTrashed';
-
-    // TODO: Translations
-    public array $trashedFilters = [
-        'withTrashed' => 'Include Trashed Items',
-        'withoutTrashed' => 'Exclude Trashed Items',
-        'onlyTrashed' => 'Show Trashed Items Only'
-    ];
 
     public function initializeWithTrashedModelsFilter(): void
     {
@@ -21,6 +17,15 @@ trait WithTrashedModelsFilter
         );
 
         $this->ensureToUseATrashedFilter($this->trashed);
+    }
+
+    public function getTrashedFiltersProperty()
+    {
+        return [
+            'withTrashed' => trans('mops::livewire.trashedFilters.withTrashed'),
+            'withoutTrashed' => trans('mops::livewire.trashedFilters.withoutTrashed'),
+            'onlyTrashed' => trans('mops::livewire.trashedFilters.onlyTrashed')
+        ];
     }
 
     public function updatingTrashed(string &$value): void

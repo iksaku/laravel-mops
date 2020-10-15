@@ -20,10 +20,11 @@ class MopsServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Blade::componentNamespace('iksaku\Laravel\Mops\Components', 'mops');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'mops');
 
-        Blade::componentNamespace('iksaku\Laravel\Mops\Components', 'mops');
-        
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'mops');
+
         $this->registerCommands();
 
         $this->publishes([
@@ -32,6 +33,10 @@ class MopsServiceProvider extends ServiceProvider
 
             __DIR__.'/../resources/views' => resource_path('views/vendor/mops')
         ], 'mops-components');
+
+        $this->publishes([
+            __DIR__.'/../resources/lang' => resource_path('lang/vendor/mops')
+        ], 'mops-localization');
     }
 
     public function registerCommands()
