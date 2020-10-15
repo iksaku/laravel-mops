@@ -19,7 +19,7 @@ trait WithTrashedModelsFilter
         $this->ensureToUseATrashedFilter($this->trashed);
     }
 
-    public function getTrashedFiltersProperty()
+    public function getTrashedFiltersProperty(): array
     {
         return [
             'withTrashed' => trans('mops::livewire.trashedFilters.withTrashed'),
