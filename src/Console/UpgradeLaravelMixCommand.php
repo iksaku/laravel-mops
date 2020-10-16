@@ -15,6 +15,8 @@ class UpgradeLaravelMixCommand extends Command
 
     public function handle()
     {
+        $this->comment('Upgrading Laravel Mix to v6...');
+
         Util::updateNodePackages(function ($packages) {
             return array_merge(
                 Arr::except($packages, 'vue-template-loader'),
@@ -44,6 +46,7 @@ class UpgradeLaravelMixCommand extends Command
                 });
         }
 
-        $this->warn('Make sure to read the Laravel Mix v6 upgrade guide: https://github.com/JeffreyWay/laravel-mix/blob/master/UPGRADE.md');
+        $this->info('Laravel Mix has been upgraded to v6.');
+        $this->warn('Make sure to read the v6 upgrade guide: https://github.com/JeffreyWay/laravel-mix/blob/master/UPGRADE.md');
     }
 }
