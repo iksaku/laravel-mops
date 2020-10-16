@@ -6,7 +6,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 
-class Action extends Component
+class Alert extends Component
 {
     const TYPE_DEFAULT = 'default';
     const TYPE_INFO = 'info';
