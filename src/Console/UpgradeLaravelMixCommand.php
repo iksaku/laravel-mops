@@ -19,7 +19,7 @@ class UpgradeLaravelMixCommand extends Command
 
         Util::updateNodePackages(function ($packages) {
             return array_merge(
-                Arr::except($packages, 'vue-template-loader'),
+                Arr::except($packages, 'vue-template-compiler'),
                 [
                     'laravel-mix' => '^6.0.0'
                 ]

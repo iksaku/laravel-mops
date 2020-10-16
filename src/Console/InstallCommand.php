@@ -66,18 +66,18 @@ class InstallCommand extends Command
             fn ($search, $file_contents) => !Str::contains($file_contents, $search)
         );
 
-        $this->info('[Fortify] Configuration successful.');
+        $this->info('[Fortify] Laravel Fortify has been configured.');
     }
 
     protected function configureSessionDriver()
     {
         $this->comment('[Drivers] Starting Configuration...', OutputInterface::VERBOSITY_DEBUG);
 
-        $this->comment('[Drivers] Looking for table migration...', OutputInterface::VERBOSITY_DEBUG);
+        $this->comment('[Drivers] Looking for migration table...', OutputInterface::VERBOSITY_DEBUG);
         if (! class_exists('CreateSessionsTable')) {
             try {
-                $this->comment('[Drivers] Publishing table migration...', OutputInterface::VERBOSITY_DEBUG);
-                $this->call('session:table');
+                $this->comment('[Drivers] Publishing migration table...', OutputInterface::VERBOSITY_DEBUG);
+                $this->callSilent('session:table');
             } catch (Exception $e) {
                 //
             }
@@ -139,8 +139,9 @@ class InstallCommand extends Command
                     '@iksaku/tailwindcss-plugins' => '^2.0.1',
                     '@tailwindcss/ui' => '^0.6.0',
                     'alpinejs' => '^2.7.0',
-                    'autoprefixer' => '^10.0.0',
-                    'tailwindcss' => '^1.8.0'
+                    'autoprefixer' => '^9.8.0',
+                    'tailwindcss' => '^1.8.0',
+                    'vue-template-compiler' => '^2.6.10'
                 ],
                 Arr::except(
                     $packages,
