@@ -27,7 +27,7 @@ class MopsServiceProvider extends ServiceProvider
 
     public function configureComponents()
     {
-        Blade::componentNamespace('iksaku\Laravel\Mops\Components', 'mops');
+        Blade::componentNamespace('iksaku\Laravel\Mops\View\Components', 'mops');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'mops');
 
         $this->publishes([

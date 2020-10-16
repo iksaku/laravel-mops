@@ -1,7 +1,7 @@
 <div
     x-data="{ show: true }"
     x-show="show"
-    class="w-full flex items-center justify-between {{ $backgroundColor }} {{ $textColor }} rounded-md mb-4"
+    class="w-full flex items-center justify-between {{ $backgroundColor }} {{ $textColor }} border {{ $borderColor }} rounded-md mb-4 space-x-2"
 >
     <div class="flex items-start p-4 space-x-2">
         @isset($icon)
@@ -29,7 +29,7 @@
 
     @if($closeable)
         <button
-            class="{{ $titleColor }} font-bold focus:outline-none p-4 pr-6"
+            class="{{ $titleColor }} font-bold focus:outline-none p-4"
             @click="show = false"
         >
             &times;
