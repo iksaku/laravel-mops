@@ -13,6 +13,7 @@ module.exports = {
 
     variants: {
         padding: [...variants.padding, 'first', 'last'],
+        textColor: [...variants.textColor, 'hocus']
     },
 
     purge: {
@@ -29,6 +30,7 @@ module.exports = {
     plugins: [
         require('@tailwindcss/ui'),
         require('@iksaku/tailwindcss-plugins/src/interFontFamily'),
+        require('@iksaku/tailwindcss-plugins/src/hocus'),
         require('@iksaku/tailwindcss-plugins/src/smoothScroll'),
     ],
 }

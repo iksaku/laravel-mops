@@ -1,9 +1,10 @@
 <div
     x-data="{ show: true }"
     x-show="show"
-    class="w-full flex items-center justify-between {{ $backgroundColor }} {{ $textColor }} border {{ $borderColor }} rounded-md mb-4 space-x-2"
+    class="w-full flex items-center justify-between {{ $backgroundColor }} {{ $textColor }} border {{ $borderColor }} p-4 sm:px-6 rounded-md mb-4 space-x-2"
+    role="alert"
 >
-    <div class="flex items-start p-4 space-x-2">
+    <div class="flex items-start space-x-2">
         @isset($icon)
             <div class="inline-block align-middle">
                 {!! $icon !!}
@@ -12,7 +13,7 @@
 
         <div class="text-sm sm:text-base">
             @isset($title)
-                <div class="{{ $titleColor }} font-semibold">
+                <div class="font-semibold">
                     {{ $title }}
                 </div>
             @endif
@@ -29,8 +30,8 @@
 
     @if($closeable)
         <button
-            class="{{ $titleColor }} font-bold focus:outline-none p-4"
             @click="show = false"
+            class="text-2xl font-bold leading-none focus:outline-none"
         >
             &times;
         </button>

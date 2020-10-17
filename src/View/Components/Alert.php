@@ -24,7 +24,6 @@ class Alert extends Component
 
     public ?string $backgroundColor = null;
     public ?string $borderColor = null;
-    public ?string $titleColor = null;
     public ?string $textColor = null;
 
     public function __construct(string $key = null, bool $closeable = true, string $type = null, string $title = null, string $message = null)
@@ -74,39 +73,34 @@ class Alert extends Component
     {
         $this->backgroundColor = 'bg-gray-100';
         $this->borderColor = 'border-gray-500';
-        $this->titleColor = 'text-gray-800';
-        $this->textColor = 'text-gray-700';
+        $this->textColor = 'text-gray-900';
     }
 
     protected function setupInfoAlert(): void
     {
         $this->backgroundColor = 'bg-blue-100';
         $this->borderColor = 'border-blue-500';
-        $this->titleColor = 'text-blue-800';
-        $this->textColor = 'text-blue-700';
+        $this->textColor = 'text-blue-900';
     }
 
     protected function setupSuccessAlert(): void
     {
         $this->backgroundColor = 'bg-green-100';
         $this->borderColor = 'border-green-500';
-        $this->titleColor = 'text-green-800';
-        $this->textColor = 'text-green-700';
+        $this->textColor = 'text-green-900';
     }
 
     protected function setupWarningAlert(): void
     {
         $this->backgroundColor = 'bg-yellow-100';
         $this->borderColor = 'border-yellow-500';
-        $this->titleColor = 'text-yellow-800';
-        $this->textColor = 'text-yellow-700';
+        $this->textColor = 'text-yellow-900';
     }
 
     protected function setupErrorAlert(): void
     {
         $this->backgroundColor = 'bg-red-100';
         $this->borderColor = 'border-red-500';
-        $this->titleColor = 'text-red-800';
-        $this->textColor = 'text-red-700';
+        $this->textColor = 'text-red-900';
     }
 }
