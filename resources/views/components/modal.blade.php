@@ -1,8 +1,10 @@
-@props(['event'])
+@props(['event', 'title' => null])
+
+<x-mops::include.component.open-close />
 
 <div
     x-cloak
-    x-data="{ ...mopsDefaultModalData(), ...{{ $attributes->get('x-data', '{}') }} }"
+    x-data="{ ...mopsComponentOpenClose(), ...{{ $attributes->get('x-data', '{}') }} }"
     x-show="isOpen"
     {{ "@{$event}" }}.window="open($event)"
     wire:key="{{ $event }}-modal"
@@ -22,23 +24,26 @@
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0"
         >
-            <div class="fixed inset-0 bg-gray-500 opacity-50"></div>
+            <div class="fixed inset-0 bg-black opacity-50"></div>
         </div>
 
         <x-mops::card
-            {{ $attributes->except('x-data')->merge(['class' => 'relative']) }}
-
-            x-show="isOpen"
-            x-transition:enter="transform transition-all ease-out duration-200"
-            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-            x-transition:leave="transform transition-all ease-in duration-200"
-            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            {{
+                $attributes->except('x-data')->merge([
+                    'class' => 'relative rounded-md',
+                    'x-show' => 'isOpen',
+                    'x-transition:enter' => 'transform ease-out duration-200',
+                    'x-transition:enter-start' => 'translate-y-full sm:translate-y-0 sm:scale-95 sm:opacity-0',
+                    'x-transition:enter-end' => 'sm:scale-100 sm:opacity-100',
+                    'x-transition:leave' => 'transform ease-in duration-200',
+                    'x-transition:leave-start' => 'sm:scale-100 sm:opacity-100',
+                    'x-transition:leave-end' => 'translate-y-full sm:translate-y-0 sm:scale-95 sm:opacity-0'
+                ])
+            }}
         >
-            <div class="divide-y divide-gray-200 -m-4 sm:-mx-6">
+            <div class="divide-y divide-gray-300 -m-4 sm:-mx-6">
                 <div class="flex items-center justify-between p-4 sm:px-6">
-                    <div class="text-lg font-semibold">
+                    <div class="font-semibold leading-none">
                         @isset($title)
                             {{ $title }}
                         @endisset
@@ -65,27 +70,3 @@
         </x-mops::card>
     </div>
 </div>
-
-@once
-    @push('scripts')
-        <script>
-            function mopsDefaultModalData() {
-                return {
-                    isOpen: false,
-
-                    open(event) {
-                        this.isOpen = true
-                        this.onOpen(event)
-                    },
-                    onOpen(event) {},
-
-                    close(event) {
-                        this.isOpen = false
-                        this.onClose(event);
-                    },
-                    onClose(event) {}
-                }
-            }
-        </script>
-    @endpush
-@endonce

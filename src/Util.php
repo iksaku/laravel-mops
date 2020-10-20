@@ -12,7 +12,7 @@ class Util
      * @param string $path
      * @param callable|null $condition
      */
-    public static function replaceInFile($search, $replace, string $path, callable $condition = null)
+    public static function replaceInFile($search, $replace, string $path, callable $condition = null): void
     {
         // Don't replace anything, since the file doesn't exist.
         if (!file_exists($path)) {
@@ -29,7 +29,13 @@ class Util
         file_put_contents($path, str_replace($search, $replace, $file_contents));
     }
 
-    public static function updateNodePackageFile(callable $callback, string $key = null)
+    /**
+     * Update properties from "package.json" file
+     *
+     * @param callable $callback
+     * @param string|null $key
+     */
+    public static function updateNodePackageFile(callable $callback, string $key = null): void
     {
         if (! file_exists(base_path('package.json'))) {
             return;
@@ -57,7 +63,7 @@ class Util
      * @param  callable  $callback
      * @return void
      */
-    public static function updateNodePackages(callable $callback)
+    public static function updateNodePackages(callable $callback): void
     {
         self::updateNodePackageFile(function ($packages) use ($callback) {
             $packages = $callback($packages);

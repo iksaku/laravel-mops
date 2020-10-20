@@ -12,7 +12,7 @@ class MopsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-
+        Blade::if('route', 'in_route');
     }
 
     /*

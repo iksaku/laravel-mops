@@ -1,0 +1,7 @@
+* text=auto
+
+*.blade.php diff=html
+*.pcss diff=css
+*.html diff=html
+*.md diff=markdown
+*.php diff=php

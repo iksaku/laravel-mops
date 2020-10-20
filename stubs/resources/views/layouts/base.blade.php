@@ -28,7 +28,7 @@
         @stack('styles')
     </head>
 
-    <body class="bg-gray-100 text-gray-900">
+    <body class="bg-white text-gray-900">
         @yield('body')
 
         @stack('modals')

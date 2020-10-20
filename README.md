@@ -33,9 +33,10 @@ Simply run the following commands:
 ```sh
 composer require iksaku/laravel-mops
 php artisan mops:install
-yarn install
 ```
 
-This will install all required Composer and NPM packages and publish my UI and Component scaffolding in your Laravel Application.
+This will install all required Composer and Node packages, as well as some Page Layouts in your application.
+All the extra UI components and utilities will be available via blade using the `x-mops::<component>` syntax.
 
-Beware that overrides may occur if you're not in a fresh Laravel installation.
+Beware that overrides may occur if you're not installing into a fresh Laravel installation. I strongly recommend you to
+make changes in a secondary branch to prevent data loss from your existing packages, configurations or views.

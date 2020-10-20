@@ -20,6 +20,9 @@
         "illuminate/view": "^8.0"
     },
     "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
         "psr-4": {
             "iksaku\\Laravel\\Mops\\": "src/"
         }
