@@ -1,10 +1,9 @@
 @extends('layouts.base')
 
-<x-mops::include.livewire />
 <x-mops::include.alpine />
 
 @section('body')
-    <div class="relative min-h-screen w-full flex">
+    <div class="relative w-full min-h-screen flex">
         <x-mops::dashboard.sidebar>
             <x-mops::dashboard.sidebar.section>
                 <x-mops::dashboard.sidebar.link

@@ -30,21 +30,25 @@ class MopsServiceProvider extends ServiceProvider
         Blade::componentNamespace('iksaku\Laravel\Mops\View\Components', 'mops');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'mops');
 
-        $this->publishes([
-            // TODO: Research the possibility to override Component Classes
-            // __DIR__.'/View/Components' => app_path('View/Components'),
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                // TODO: Research the possibility to override Component Classes
+                // __DIR__.'/View/Components' => app_path('View/Components'),
 
-            __DIR__.'/../resources/views' => resource_path('views/vendor/mops')
-        ], 'mops-components');
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/mops')
+            ], 'mops-components');
+        }
     }
 
     public function configureLocalization()
     {
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'mops');
 
-        $this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/mops')
-        ], 'mops-localization');
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../resources/lang' => resource_path('lang/vendor/mops')
+            ], 'mops-localization');
+        }
     }
 
     public function registerCommands()

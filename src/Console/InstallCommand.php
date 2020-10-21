@@ -53,9 +53,7 @@ class InstallCommand extends Command
 
         // Publish Fortify Configuration.
         $this->comment('[Fortify] Publishing configuration...', OutputInterface::VERBOSITY_DEBUG);
-        $this->callSilent('vendor:publish', ['--tag' => 'fortify-config', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'fortify-support', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'fortify-migrations', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--provider' => 'Laravel\Fortify\FortifyServiceProvider', '--force' => true]);
 
         // Install Fortify Service Provider.
         $this->comment('[Fortify] Configuring FortifyServiceProvider', OutputInterface::VERBOSITY_DEBUG);
