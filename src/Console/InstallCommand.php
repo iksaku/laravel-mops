@@ -58,10 +58,10 @@ class InstallCommand extends Command
         // Install Fortify Service Provider.
         $this->comment('[Fortify] Configuring FortifyServiceProvider', OutputInterface::VERBOSITY_DEBUG);
         Util::replaceInFile(
-            'App\Providers\FortifyServiceProvider::class',
-            'App\Providers\RouteServiceProvider::class,'.PHP_EOL.'        App\Providers\FortifyServiceProvider::class,',
+            'App\Providers\RouteServiceProvider::class',
+            'App\Providers\RouteServiceProvider::class,'.PHP_EOL.'        App\Providers\FortifyServiceProvider::class',
             config_path('app.php'),
-            fn ($search, $file_contents) => !Str::contains($file_contents, $search)
+            fn ($search, $file_contents) => !Str::contains($file_contents, 'App\Providers\FortifyServiceProvider::class')
         );
 
         $this->info('[Fortify] Laravel Fortify has been configured.');

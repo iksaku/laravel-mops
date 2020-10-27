@@ -4,6 +4,7 @@ namespace iksaku\Laravel\Mops;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Fortify\Fortify;
 
 class MopsServiceProvider extends ServiceProvider
 {
@@ -21,26 +22,40 @@ class MopsServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureComponents();
+        $this->configureFortifyViews();
         $this->configureLocalization();
         $this->registerCommands();
     }
 
-    public function configureComponents()
+    public function configureComponents(): void
     {
         Blade::componentNamespace('iksaku\Laravel\Mops\View\Components', 'mops');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'mops');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                // TODO: Research the possibility to override Component Classes
-                // __DIR__.'/View/Components' => app_path('View/Components'),
-
                 __DIR__ . '/../resources/views' => resource_path('views/vendor/mops')
             ], 'mops-components');
         }
     }
 
-    public function configureLocalization()
+    public function configureFortifyViews(): void
+    {
+        // Auth Views
+        Fortify::loginView('auth.login');
+        Fortify::twoFactorChallengeView('auth.2fa-challenge');
+        Fortify::registerView('auth.register');
+
+        // Password Views
+        Fortify::requestPasswordResetLinkView('auth.password.forgot');
+        Fortify::resetPasswordView('auth.password.reset');
+        Fortify::confirmPasswordView('auth.password.confirm');
+
+        // Email Views
+        Fortify::verifyEmailView('auth.email.verify');
+    }
+
+    public function configureLocalization(): void
     {
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'mops');
 
@@ -51,7 +66,7 @@ class MopsServiceProvider extends ServiceProvider
         }
     }
 
-    public function registerCommands()
+    public function registerCommands(): void
     {
         if (!$this->app->runningInConsole()) return;
 
