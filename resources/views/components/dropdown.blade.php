@@ -6,7 +6,7 @@
 
     class="relative inline-block"
 >
-    <div @click="open()">
+    <div @click="toggle()">
         {{ $trigger }}
     </div>
 

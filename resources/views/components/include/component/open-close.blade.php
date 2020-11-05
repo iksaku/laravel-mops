@@ -5,6 +5,10 @@
                 return {
                     isOpen: false,
 
+                    toggle() {
+                        this.isOpen ? this.close() : this.open()
+                    },
+
                     open(event) {
                         this.isOpen = true
                         this.onOpen(event)
