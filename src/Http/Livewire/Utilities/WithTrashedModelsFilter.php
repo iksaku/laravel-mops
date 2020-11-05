@@ -22,9 +22,9 @@ trait WithTrashedModelsFilter
     public function getTrashedFiltersProperty(): array
     {
         return [
-            'withTrashed' => trans('mops::livewire.trashedFilters.withTrashed'),
-            'withoutTrashed' => trans('mops::livewire.trashedFilters.withoutTrashed'),
-            'onlyTrashed' => trans('mops::livewire.trashedFilters.onlyTrashed')
+            'withTrashed' => trans('mops::livewire.filters.trashed.withTrashed'),
+            'withoutTrashed' => trans('mops::livewire.filters.trashed.withoutTrashed'),
+            'onlyTrashed' => trans('mops::livewire.filters.trashed.onlyTrashed')
         ];
     }
 
