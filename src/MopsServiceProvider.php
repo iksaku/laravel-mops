@@ -36,6 +36,10 @@ class MopsServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../resources/views' => resource_path('views/vendor/mops')
             ], 'mops-components');
+
+            $this->publishes([
+                __DIR__ . '/../stubs/resources/views' => resource_path('views')
+            ], 'mops-views');
         }
     }
 

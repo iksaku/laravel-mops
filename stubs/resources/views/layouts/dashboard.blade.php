@@ -21,7 +21,7 @@
         <div class="min-w-0 flex-grow flex flex-col">
             <x-mops::dashboard.header />
 
-            <div class="h-full flex-grow flex flex-col sm:px-4 py-4 lg:px-8 space-y-4">
+            <div class="h-full flex-grow flex flex-col sm:px-4 lg:px-8 py-4 space-y-4">
                 <div class="container flex-grow flex mx-auto">
                     @yield('content')
                 </div>
