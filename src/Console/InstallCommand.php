@@ -76,7 +76,7 @@ class InstallCommand extends Command
             try {
                 $this->comment('[Drivers] Publishing migration table...', OutputInterface::VERBOSITY_DEBUG);
                 $this->callSilent('session:table');
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 //
             }
         }
@@ -138,7 +138,7 @@ class InstallCommand extends Command
                     '@tailwindcss/ui' => '^0.6.0',
                     'alpinejs' => '^2.7.0',
                     'autoprefixer' => '^9.8.0',
-                    'tailwindcss' => '^1.8.0',
+                    'tailwindcss' => '^1.9.0',
                     'vue-template-compiler' => '^2.6.10'
                 ],
                 Arr::except(
