@@ -10,7 +10,7 @@
 @section('submit', __('mops::auth.password.forgot.action'))
 
 @section('contents')
-    <x-mops::form.label name="Email">
+    <x-mops::form.label :name="__('mops::auth.fields.email')">
         <x-mops::form.input
                 autofocus
                 required

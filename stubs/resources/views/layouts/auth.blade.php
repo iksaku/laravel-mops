@@ -39,9 +39,9 @@
                     @yield('contents')
 
                     <div class="w-full flex justify-center">
-                        <button type="submit" class="w-full md:w-2/3 bg-blue-500 hocus:bg-blue-700 text-white font-bold focus:shadow-outline focus:outline-none px-4 py-2 rounded-md">
+                        <x-mops::button type="submit" class="w-full bg-blue-500 hocus:bg-blue-700 text-white font-bold">
                             @yield('submit')
-                        </button>
+                        </x-mops::button>
                     </div>
                 </x-mops::card>
             </form>

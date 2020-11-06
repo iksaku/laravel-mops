@@ -37,8 +37,8 @@ return [
         'forgot' => [
             'title' => 'Restablece tu contraseña',
             'description' => 'Si has olvidado tu contraseña, podemos enviarte un correo al email con el que creaste tu cuenta.',
-            'option' => '¿Olvidaste tu contraseña?',
-            'action' => 'Envíame un correo'
+            'action' => 'Envíame un correo',
+            'option' => '¿Olvidaste tu contraseña?'
         ]
     ],
 

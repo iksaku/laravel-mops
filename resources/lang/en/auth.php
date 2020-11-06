@@ -36,13 +36,9 @@ return [
         ],
         'forgot' => [
             'title' => 'Recover my Password',
-            'description' => <<<desc
-We can help you recover your password. <br>
-Please provide the email associated to your <br>
-account and we will send you a reset link.
-desc,
-            'option' => 'Forgot your Password?',
-            'action' => 'Send me a Reset Link'
+            'description' => 'If you forgot your password, we can send you a recovery link to the email associated to your account.',
+            'action' => 'Send me a Recovery Link',
+            'option' => 'Forgot your Password?'
         ]
     ],
 
