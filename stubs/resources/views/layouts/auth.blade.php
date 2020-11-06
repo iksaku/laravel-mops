@@ -1,25 +1,34 @@
 @extends('layouts.base')
 
+<x-mops::include.alpine />
+
 @section('body')
     <div class="w-full min-h-screen flex flex-col bg-gray-200">
         @auth
-            {{-- TODO: Auth Header --}}
+            <x-mops::auth.header />
         @endauth
 
-        <div class="w-full flex-grow flex flex-col items-center justify-center sm:px-4 py-4 lg:px-8 space-y-8">
-            <div class="text-center space-y-2">
-                <h1 class="text-4xl text-center font-bold px-4 sm:px-0">
-                    @hasSection('message')
-                        @yield('message')
-                    @else
-                        @yield('title')
-                    @endif
+        <div
+            x-data="@yield('x-data', '{}')"
+            class="w-full flex-grow flex flex-col items-center justify-center sm:px-4 lg:px-8 py-4 space-y-8"
+        >
+            <div class="w-full sm:max-w-md flex flex-col items-center text-center space-y-2 px-4 sm:px-0">
+                <x-logo class="h-24" />
+
+                <h1 class="text-4xl font-bold">
+                    @yield('title')
                 </h1>
 
                 @hasSection('subtitle')
-                    <h2 class="text-lg text-center font-medium px-4 sm:px-0">
+                    <h2 class="text-xl font-medium">
                         @yield('subtitle')
                     </h2>
+                @endif
+
+                @hasSection('description')
+                    <p class="font-medium">
+                        @yield('description')
+                    </p>
                 @endif
             </div>
 
@@ -28,6 +37,12 @@
 
                 <x-mops::card>
                     @yield('contents')
+
+                    <div class="w-full flex justify-center">
+                        <button type="submit" class="w-full md:w-2/3 bg-blue-500 hocus:bg-blue-700 text-white font-bold focus:shadow-outline focus:outline-none px-4 py-2 rounded-md">
+                            @yield('submit')
+                        </button>
+                    </div>
                 </x-mops::card>
             </form>
         </div>
