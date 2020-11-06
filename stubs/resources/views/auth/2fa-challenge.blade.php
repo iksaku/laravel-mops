@@ -46,7 +46,7 @@
                 x-show="recovery"
                 @click="recovery = false"
                 type="button"
-                class="text-blue-500 hocus:text-blue-700 font-medium"
+                class="text-blue-500 hocus:text-blue-700 font-medium focus:outline-none"
         >
             @lang('mops::auth.2fa.options.otp')
         </button>
@@ -55,7 +55,7 @@
                 x-show="!recovery"
                 @click="recovery = true"
                 type="button"
-                class="text-blue-500 hocus:text-blue-700 font-medium"
+                class="text-blue-500 hocus:text-blue-700 font-medium focus:outline-none"
         >
             @lang('mops::auth.2fa.options.recovery-code')
         </button>
