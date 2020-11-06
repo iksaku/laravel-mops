@@ -4,19 +4,16 @@ namespace iksaku\Laravel\Mops\View\Components;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
+use Illuminate\Support\Traits\Macroable;
 use Illuminate\View\Component;
 
 class Alert extends Component
 {
-    const TYPE_DEFAULT = 'default';
-    const TYPE_INFO = 'info';
-    const TYPE_SUCCESS = 'success';
-    const TYPE_WARNING = 'warning';
-    const TYPE_ERROR = 'error';
+    use Macroable;
 
-    public bool $shouldRender = true;
+    private bool $shouldRender = true;
+    private ?string $key = null;
 
-    public ?string $key = null;
     public bool $closeable = true;
 
     public ?string $title = null;
@@ -51,11 +48,14 @@ class Alert extends Component
         $this->title = $title;
         $this->message = $message;
 
-        // Call alert type setup (this allows for better customization).
-        if (!empty($type) && method_exists($this, $method = "setup{$type}Alert")) {
-            $this->{$method}();
-        } else {
-            $this->setupDefaultAlert();
+        $this->setupAlertPresets();
+
+        try {
+            $this->{self::methodFor($type)}();
+        } catch (\BadMethodCallException $e) {
+            throw new \BadMethodCallException(sprintf(
+                'Unable to find alert configuration for type %s.', $type
+            ));
         }
     }
 
@@ -69,38 +69,51 @@ class Alert extends Component
         return view('mops::components.alert');
     }
 
-    protected function setupDefaultAlert(): void
+    public static function methodFor(string $type): string
     {
-        $this->backgroundColor = 'bg-gray-100';
-        $this->borderColor = 'border-gray-500';
-        $this->textColor = 'text-gray-900';
+        return (string) Str::of($type)
+            ->lower()
+            ->ucfirst()
+            ->prepend('create')
+            ->append('Alert');
     }
 
-    protected function setupInfoAlert(): void
+    protected function setupAlertPresets(): void
     {
-        $this->backgroundColor = 'bg-blue-100';
-        $this->borderColor = 'border-blue-500';
-        $this->textColor = 'text-blue-900';
-    }
+        $presets = [
+            'default' => function() {
+                $this->backgroundColor = 'bg-gray-100';
+                $this->borderColor = 'border-gray-500';
+                $this->textColor = 'text-gray-900';
+            },
+            'info' => function() {
+                $this->backgroundColor = 'bg-blue-100';
+                $this->borderColor = 'border-blue-500';
+                $this->textColor = 'text-blue-900';
+            },
+            'success' => function() {
+                $this->backgroundColor = 'bg-green-100';
+                $this->borderColor = 'border-green-500';
+                $this->textColor = 'text-green-900';
+            },
+            'warning' => function() {
+                $this->backgroundColor = 'bg-yellow-100';
+                $this->borderColor = 'border-yellow-500';
+                $this->textColor = 'text-yellow-900';
+            },
+            'error' => function() {
+                $this->backgroundColor = 'bg-red-100';
+                $this->borderColor = 'border-red-500';
+                $this->textColor = 'text-red-900';
+            }
+        ];
 
-    protected function setupSuccessAlert(): void
-    {
-        $this->backgroundColor = 'bg-green-100';
-        $this->borderColor = 'border-green-500';
-        $this->textColor = 'text-green-900';
-    }
+        foreach ($presets as $type => $closure) {
+            $methodName = self::methodFor($type);
 
-    protected function setupWarningAlert(): void
-    {
-        $this->backgroundColor = 'bg-yellow-100';
-        $this->borderColor = 'border-yellow-500';
-        $this->textColor = 'text-yellow-900';
-    }
-
-    protected function setupErrorAlert(): void
-    {
-        $this->backgroundColor = 'bg-red-100';
-        $this->borderColor = 'border-red-500';
-        $this->textColor = 'text-red-900';
+            if (!self::hasMacro($methodName)) {
+                self::macro($methodName, $closure);
+            }
+        }
     }
 }
