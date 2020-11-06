@@ -50,7 +50,7 @@
                     </div>
 
                     <button
-                        class="text-gray-400 hocus:text-red-500 text-2xl font-bold leading-none focus:shadow-outline-red focus:outline-none"
+                        class="text-gray-400 hocus:text-red-500 text-2xl font-bold leading-none focus:shadow-outline focus:outline-none"
                         @click="close()"
                     >
                         &times;
