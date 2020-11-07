@@ -47,6 +47,15 @@ return [
         ],
     ],
 
+    'email' => [
+        'verification' => [
+            'title' => 'Email Verification',
+            'description' => 'Before continuing, please verify your email address by clicking the link we sent you.',
+            'action' => 'Send me another verification email',
+            'sent' => 'A new verification link has been sent to your email!'
+        ]
+    ],
+
     'fields' => [
         'name' => 'Name',
         'email' => 'Email',

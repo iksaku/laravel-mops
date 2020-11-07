@@ -47,6 +47,15 @@ return [
         ],
     ],
 
+    'email' => [
+        'verification' => [
+            'title' => 'Verifica tu Email',
+            'description' => 'Antes de continuar, por favor verifica tu email entrando al enlace que te hemos enviado por correo.',
+            'action' => 'Envíame otro correo de verificación',
+            'sent' => '¡Un nuevo enlace de verificación ha sido enviado a tu correo!'
+        ]
+    ],
+
     'fields' => [
         'name' => 'Nombre',
         'email' => 'Email',
