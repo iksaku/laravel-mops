@@ -14,6 +14,17 @@
 @section('submit', __('mops::auth.login.action'))
 
 @section('contents')
+    @if(session()->get('status', false))
+        <div class="-m-4 mb-0 sm:-mx-6">
+            <x-mops::alert
+                    class="text-center rounded-b-none"
+                    type="success"
+                    :message="session()->get('status')"
+                    :closeable="false"
+            />
+        </div>
+    @endif
+
     <x-mops::form.label :name="__('mops::auth.fields.email')">
         <x-mops::form.input
                 autofocus

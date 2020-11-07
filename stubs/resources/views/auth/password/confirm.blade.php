@@ -2,9 +2,7 @@
 
 @section('title', __('mops::auth.password.confirm.title'))
 
-@section('description')
-    @lang('mops::auth.password.confirm.description')
-@endsection
+@section('description', __('mops::auth.password.confirm.description'))
 
 @section('action', route('password.confirm'))
 @section('submit', __('mops::auth.login.action'))

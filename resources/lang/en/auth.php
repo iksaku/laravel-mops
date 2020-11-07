@@ -39,7 +39,12 @@ return [
             'description' => 'If you forgot your password, we can send you a recovery link to the email associated to your account.',
             'action' => 'Send me a Recovery Link',
             'option' => 'Forgot your Password?'
-        ]
+        ],
+        'reset' => [
+            'title' => 'Recover my Password',
+            'description' => 'Please provide the email address associated with your account and your new password to continue.',
+            'action' => 'Save Password'
+        ],
     ],
 
     'fields' => [

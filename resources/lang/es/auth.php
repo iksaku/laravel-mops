@@ -32,14 +32,19 @@ return [
     'password' => [
         'confirm' => [
             'title' => 'Confirma tu Identidad',
-            'description' => 'Por favor ingresa tu Contraseña para continuar'
+            'description' => 'Por favor ingresa tu contraseña para continuar'
         ],
         'forgot' => [
-            'title' => 'Restablece tu contraseña',
+            'title' => 'Restablecer contraseña',
             'description' => 'Si has olvidado tu contraseña, podemos enviarte un correo al email con el que creaste tu cuenta.',
             'action' => 'Envíame un correo',
             'option' => '¿Olvidaste tu contraseña?'
-        ]
+        ],
+        'reset' => [
+            'title' => 'Restablecer contraseña',
+            'description' => 'Por favor ingresa el email asociado con tu cuenta y la nueva contraseña que deseas utilizar.',
+            'action' => 'Guardar Contraseña'
+        ],
     ],
 
     'fields' => [
