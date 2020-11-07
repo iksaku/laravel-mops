@@ -1,17 +1,17 @@
 <div
     x-data="{ show: true }"
     x-show="show"
-    class="w-full flex items-center justify-between {{ $backgroundColor }} {{ $textColor }} border {{ $borderColor }} p-4 sm:px-6 rounded-md mb-4 space-x-2"
+    {{ $attributes->merge(['class' => "w-full flex items-center justify-between {$backgroundColor} {$textColor} border {$borderColor} p-4 sm:px-6 rounded-md mb-4 space-x-2"]) }}
     role="alert"
 >
-    <div class="flex items-start space-x-2">
+    <div class="flex-grow flex items-start space-x-2">
         @isset($icon)
-            <div class="inline-block align-middle">
+            <div class="flex-shrink-0 inline-block align-middle">
                 {!! $icon !!}
             </div>
         @endisset
 
-        <div class="text-sm sm:text-base">
+        <div class="flex-grow text-sm sm:text-base">
             @isset($title)
                 <div class="font-semibold">
                     {{ $title }}
@@ -31,7 +31,7 @@
     @if($closeable)
         <button
             @click="show = false"
-            class="text-2xl font-bold leading-none focus:outline-none"
+            class="flex-shrink-0 text-2xl font-bold leading-none focus:outline-none"
         >
             &times;
         </button>

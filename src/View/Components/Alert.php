@@ -23,7 +23,7 @@ class Alert extends Component
     public ?string $borderColor = null;
     public ?string $textColor = null;
 
-    public function __construct(string $key = null, bool $closeable = true, string $type = null, string $title = null, string $message = null)
+    public function __construct(string $key = null, bool $closeable = true, string $type = 'default', string $title = null, string $message = null)
     {
         if (!empty($key)) {
             // Skip alert rendering if the provided key is not found in session.
@@ -38,9 +38,8 @@ class Alert extends Component
             // Assign session values to our alert.
             $title = session()->get("{$key}.title");
             $message = session()->get("{$key}.message");
-
-            // Try to grab alert type it from session data.
-            $type = Str::of(session()->get("{$key}.type", 'default'))->lower()->ucfirst();
+            $type = session()->get("{$key}.type", $type);
+            $closeable = session()->get("{$key}.closeable", $closeable);
         }
 
         $this->closeable = $closeable;
