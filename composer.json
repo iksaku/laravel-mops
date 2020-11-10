@@ -16,6 +16,7 @@
         "ext-json": "*",
         "illuminate/support": "^8.0",
         "laravel/fortify": "^1.0",
+        "laravel/sanctum": "^2.6",
         "jenssegers/agent": "^2.6",
         "illuminate/view": "^8.0"
     },
@@ -33,8 +34,5 @@
                 "iksaku\\Laravel\\Mops\\MopsServiceProvider"
             ]
         }
-    },
-    "require-dev": {
-        "laravel/sanctum": "^2.6"
     }
 }
