@@ -12,7 +12,7 @@
 @endsection
 
 @section('action', route('two-factor.login'))
-@section('submit', __('mops::auth.login.action'))
+@section('submit', __('mops::auth.login.submit'))
 @section('x-data', '{ recovery: false }')
 
 @section('contents')

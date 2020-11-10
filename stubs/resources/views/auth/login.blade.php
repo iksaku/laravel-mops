@@ -11,7 +11,7 @@
 @endif
 
 @section('action', route('login'))
-@section('submit', __('mops::auth.login.action'))
+@section('submit', __('mops::auth.login.submit'))
 
 @section('contents')
     @if(session()->get('status', false))

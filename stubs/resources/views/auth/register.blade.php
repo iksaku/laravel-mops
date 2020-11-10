@@ -11,7 +11,7 @@
 @endif
 
 @section('action', route('register'))
-@section('submit', __('mops::auth.register.action'))
+@section('submit', __('mops::auth.register.submit'))
 
 @section('contents')
     <x-mops::form.label :name="__('mops::auth.fields.name')">

@@ -5,7 +5,7 @@
 @section('description', __('mops::auth.password.reset.description'))
 
 @section('action', route('password.update'))
-@section('submit', __('mops::auth.password.reset.action'))
+@section('submit', __('mops::auth.password.reset.submit'))
 
 @section('hidden_values')
     <input type="hidden" name="token" value="{{ $request->route('token') }}">

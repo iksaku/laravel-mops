@@ -5,7 +5,7 @@ return [
 
     'login' => [
         'title' => 'Login to your Account',
-        'action' => 'Login',
+        '.submit' => 'Login',
         'option' => 'Or login to your account'
     ],
 
@@ -13,7 +13,7 @@ return [
 
     'register' => [
         'title' => 'Create an Account',
-        'action' => 'Register',
+        '.submit' => 'Register',
         'option' => 'Or create an account'
     ],
 
@@ -37,13 +37,13 @@ return [
         'forgot' => [
             'title' => 'Recover my Password',
             'description' => 'If you forgot your password, we can send you a recovery link to the email associated to your account.',
-            'action' => 'Send me a Recovery Link',
+            '.submit' => 'Send me a Recovery Link',
             'option' => 'Forgot your Password?'
         ],
         'reset' => [
             'title' => 'Recover my Password',
             'description' => 'Please provide the email address associated with your account and your new password to continue.',
-            'action' => 'Save Password'
+            '.submit' => 'Save Password'
         ],
     ],
 
@@ -51,7 +51,7 @@ return [
         'verification' => [
             'title' => 'Email Verification',
             'description' => 'Before continuing, please verify your email address by clicking the link we sent you.',
-            'action' => 'Send me another verification email',
+            '.submit' => 'Send me another verification email',
             'sent' => 'A new verification link has been sent to your email!'
         ]
     ],

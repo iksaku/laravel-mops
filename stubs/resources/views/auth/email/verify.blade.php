@@ -3,7 +3,7 @@
 @section('title', __('mops::auth.email.verification.title'))
 
 @section('action', route('verification.send'))
-@section('submit', __('mops::auth.email.verification.action'))
+@section('submit', __('mops::auth.email.verification.submit'))
 
 @section('contents')
     @if(session()->get('status') === 'verification-link-sent')

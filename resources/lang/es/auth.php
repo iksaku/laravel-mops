@@ -5,7 +5,7 @@ return [
 
     'login' => [
         'title' => 'Inicia sesión',
-        'action' => 'Iniciar sesión',
+        '.submit' => 'Iniciar sesión',
         'option' => 'O inicia sesión'
     ],
 
@@ -13,7 +13,7 @@ return [
 
     'register' => [
         'title' => 'Crea una cuenta',
-        'action' => 'Registrar',
+        '.submit' => 'Registrar',
         'option' => 'O registrate'
     ],
 
@@ -37,13 +37,13 @@ return [
         'forgot' => [
             'title' => 'Restablecer contraseña',
             'description' => 'Si has olvidado tu contraseña, podemos enviarte un correo al email con el que creaste tu cuenta.',
-            'action' => 'Envíame un correo',
+            '.submit' => 'Envíame un correo',
             'option' => '¿Olvidaste tu contraseña?'
         ],
         'reset' => [
             'title' => 'Restablecer contraseña',
             'description' => 'Por favor ingresa el email asociado con tu cuenta y la nueva contraseña que deseas utilizar.',
-            'action' => 'Guardar Contraseña'
+            '.submit' => 'Guardar Contraseña'
         ],
     ],
 
@@ -51,7 +51,7 @@ return [
         'verification' => [
             'title' => 'Verifica tu Email',
             'description' => 'Antes de continuar, por favor verifica tu email entrando al enlace que te hemos enviado por correo.',
-            'action' => 'Envíame otro correo de verificación',
+            '.submit' => 'Envíame otro correo de verificación',
             'sent' => '¡Un nuevo enlace de verificación ha sido enviado a tu correo!'
         ]
     ],

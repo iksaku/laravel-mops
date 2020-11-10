@@ -5,7 +5,7 @@
 @section('description', __('mops::auth.password.forgot.description'))
 
 @section('action', route('password.email'))
-@section('submit', __('mops::auth.password.forgot.action'))
+@section('submit', __('mops::auth.password.forgot.submit'))
 
 @section('contents')
     @if(session()->get('status', false))
