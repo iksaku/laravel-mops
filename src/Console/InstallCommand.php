@@ -135,10 +135,10 @@ class InstallCommand extends Command
             return array_merge(
                 [
                     '@iksaku/tailwindcss-plugins' => '^2.0.1',
-                    '@tailwindcss/ui' => '^0.6.0',
                     'alpinejs' => '^2.7.0',
-                    'autoprefixer' => '^9.8.0',
-                    'tailwindcss' => '^1.9.0',
+                    'autoprefixer' => '^9',
+                    'postcss' => '^7',
+                    'tailwindcss' => 'npm:@tailwindcss/postcss7-compat',
                     'vue-template-compiler' => '^2.6.10'
                 ],
                 Arr::except(

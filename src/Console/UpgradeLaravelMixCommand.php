@@ -17,15 +17,20 @@ class UpgradeLaravelMixCommand extends Command
     {
         $this->comment('Upgrading Laravel Mix to v6...');
 
+        // Upgrade Mix dependency to v6 and upgrade from compatibility version of TailwindCSS
         Util::updateNodePackages(function ($packages) {
             return array_merge(
                 Arr::except($packages, 'vue-template-compiler'),
                 [
-                    'laravel-mix' => '^6.0.0'
+                    'autoprefixer' => '^10',
+                    'laravel-mix' => '^6.0.0',
+                    'postcss' => '^8',
+                    'tailwindcss' => '^2.0.1'
                 ]
             );
         });
 
+        // Use Mix's first-party CLI commands
         Util::updateNodePackageFile(fn ($scripts) => array_merge(
             $scripts,
             [

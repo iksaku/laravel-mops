@@ -1,4 +1,4 @@
-const { colors } = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 module.exports = {
     purge: {
@@ -17,14 +17,15 @@ module.exports = {
     },
 
     variants: {
-        backgroundColor: ({ after }) => after(['hocus', 'focus-within']),
-        padding: ({ after }) => after(['first', 'last']),
-        textColor: ({ after }) => after(['hocus'])
+        extend: {
+            backgroundColor: ['hocus', 'focus-within'],
+            padding: ['first', 'last'],
+            textColor: ['hocus'],
+        },
     },
 
     plugins: [
-        require('@tailwindcss/ui'),
         require('@iksaku/tailwindcss-plugins/src/hocus'),
-        require('@iksaku/tailwindcss-plugins/src/smoothScroll'),
+        require('@iksaku/tailwindcss-plugins/src/smoothScroll')
     ]
 }

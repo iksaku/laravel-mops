@@ -14,11 +14,12 @@
     "require": {
         "php": "^7.4",
         "ext-json": "*",
+        "illuminate/console": "^8.0",
         "illuminate/support": "^8.0",
-        "laravel/fortify": "^1.0",
-        "laravel/sanctum": "^2.6",
+        "illuminate/view": "^8.0",
         "jenssegers/agent": "^2.6",
-        "illuminate/view": "^8.0"
+        "laravel/fortify": "^1.0",
+        "laravel/sanctum": "^2.6"
     },
     "autoload": {
         "files": [
