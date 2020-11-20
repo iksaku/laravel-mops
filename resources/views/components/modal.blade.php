@@ -24,7 +24,7 @@
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0"
         >
-            <div class="fixed inset-0 bg-black opacity-50"></div>
+            <div class="fixed inset-0 bg-black opacity-75"></div>
         </div>
 
         <x-mops::card
@@ -33,16 +33,16 @@
                     'class' => 'relative w-full max-w-md rounded-md',
                     'x-show' => 'isOpen',
                     'x-transition:enter' => 'transform ease-out duration-200',
-                    'x-transition:enter-start' => 'translate-y-full sm:translate-y-0 sm:scale-95 sm:opacity-0',
+                    'x-transition:enter-start' => 'translate-y-full sm:translate-y-0 sm:scale-90 sm:opacity-0',
                     'x-transition:enter-end' => 'sm:scale-100 sm:opacity-100',
                     'x-transition:leave' => 'transform ease-in duration-200',
                     'x-transition:leave-start' => 'sm:scale-100 sm:opacity-100',
-                    'x-transition:leave-end' => 'translate-y-full sm:translate-y-0 sm:scale-95 sm:opacity-0'
+                    'x-transition:leave-end' => 'translate-y-full sm:translate-y-0 sm:scale-90 sm:opacity-0'
                 ])
             }}
         >
-            <div class="-mx-4 sm:-mx-6">
-                <div class="flex items-center justify-between px-4 sm:px-6">
+            <div class="contents space-y-2">
+                <div class="flex items-center justify-between">
                     <div class="font-semibold leading-none">
                         @isset($title)
                             {{ $title }}
@@ -57,15 +57,9 @@
                     </button>
                 </div>
 
-                <div class="px-4 sm:px-6">
+                <div>
                     {{ $slot }}
                 </div>
-
-                @isset($footer)
-                    <div class="px-4 sm:px-6">
-                        {{ $footer }}
-                    </div>
-                @endisset
             </div>
         </x-mops::card>
     </div>

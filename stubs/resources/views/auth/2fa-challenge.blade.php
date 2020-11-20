@@ -18,7 +18,7 @@
 @section('contents')
     <div>
         <x-mops::form.label :name="__('mops::auth.fields.otp')" x-show="!recovery">
-            <input
+            <x-mops::form.input
                 autofocus
                 required
                 name="code"
@@ -30,7 +30,7 @@
         </x-mops::form.label>
 
         <x-mops::form.label :name="__('mops::auth.fields.recovery-code')" x-show="recovery">
-            <input
+            <x-mops::form.input
                 autofocus
                 required
                 name="recovery_code"
@@ -46,7 +46,7 @@
             x-show="recovery"
             @click="recovery = false"
             type="button"
-            class="text-blue-500 hocus:text-blue-700 font-medium focus:outline-none"
+            class="text-blue-500 hocus:text-blue-700 font-medium focus:ring focus:outline-none"
         >
             @lang('mops::auth.2fa.options.otp')
         </button>
@@ -55,7 +55,7 @@
             x-show="!recovery"
             @click="recovery = true"
             type="button"
-            class="text-blue-500 hocus:text-blue-700 font-medium focus:outline-none"
+            class="text-blue-500 hocus:text-blue-700 font-medium focus:ring focus:outline-none"
         >
             @lang('mops::auth.2fa.options.recovery-code')
         </button>

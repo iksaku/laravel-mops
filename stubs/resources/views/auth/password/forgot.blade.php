@@ -20,7 +20,7 @@
     @endif
 
     <x-mops::form.label :name="__('mops::auth.fields.email')">
-        <input
+        <x-mops::form.input
             autofocus
             required
             name="email"

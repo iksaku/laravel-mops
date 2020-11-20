@@ -4,7 +4,7 @@
 
 @if(Route::has('register'))
     @section('subtitle')
-        <a href="{{ route('register') }}" class="text-blue-500 hocus:text-blue-700">
+        <a href="{{ route('register') }}" class="text-blue-500 hocus:text-blue-700 focus:ring focus:outline-none">
             @lang('mops::auth.register.option')
         </a>
     @endsection
@@ -26,7 +26,7 @@
     @endif
 
     <x-mops::form.label :name="__('mops::auth.fields.email')">
-        <input
+        <x-mops::form.input
             autofocus
             required
             name="email"
@@ -39,7 +39,7 @@
     </x-mops::form.label>
 
     <x-mops::form.label :name="__('mops::auth.fields.password')">
-        <input
+        <x-mops::form.input
             required
             name="password"
             type="password"
@@ -51,16 +51,15 @@
 
     <div class="w-full flex items-center justify-between">
         <x-mops::form.label class="inline-flex items-center text-sm font-medium space-x-2">
-            <input
+            <x-mops::form.checkbox
                 name="remember"
-                type="checkbox"
-                @if(old('remember')) checked @endif
+                :checked="old('remember')"
             />
             <span>@lang('mops::auth.fields.remember')</span>
         </x-mops::form.label>
 
         @if(Route::has('password.request'))
-            <a href="{{ route('password.request') }}" class="text-blue-500 hover:text-blue-700 text-sm font-medium">
+            <a href="{{ route('password.request') }}" class="text-blue-500 hocus:text-blue-700 text-sm font-medium focus:ring focus:outline-none">
                 @lang('mops::auth.password.forgot.option')
             </a>
         @endif

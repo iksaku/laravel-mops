@@ -9,7 +9,7 @@
 
 @section('contents')
     <x-mops::form.label :name="__('mops::auth.fields.password')">
-        <input
+        <x-mops::form.input
             required
             name="password"
             type="password"

@@ -4,7 +4,7 @@
 
 @if(Route::has('login'))
     @section('subtitle')
-        <a href="{{ route('login') }}" class="text-blue-500 hocus:text-blue-700">
+        <a href="{{ route('login') }}" class="text-blue-500 hocus:text-blue-700 focus:ring focus:outline-none">
             @lang('mops::auth.login.option')
         </a>
     @endsection
@@ -15,7 +15,7 @@
 
 @section('contents')
     <x-mops::form.label :name="__('mops::auth.fields.name')">
-        <input
+        <x-mops::form.input
             autofocus
             required
             name="name"
@@ -28,7 +28,7 @@
     </x-mops::form.label>
 
     <x-mops::form.label :name="__('mops::auth.fields.email')">
-        <input
+        <x-mops::form.input
             autofocus
             required
             name="email"
@@ -41,7 +41,7 @@
     </x-mops::form.label>
 
     <x-mops::form.label :name="__('mops::auth.fields.password')">
-        <input
+        <x-mops::form.input
             required
             name="password"
             type="password"
@@ -52,7 +52,7 @@
     </x-mops::form.label>
 
     <x-mops::form.label :name="__('mops::auth.fields.password-confirmation')">
-        <input
+        <x-mops::form.input
             required
             name="password_confirmation"
             type="password"

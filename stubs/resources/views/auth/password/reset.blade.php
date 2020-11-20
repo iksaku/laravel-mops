@@ -13,7 +13,7 @@
 
 @section('contents')
     <x-mops::form.label :name="__('mops::auth.fields.email')">
-        <input
+        <x-mops::form.input
             autofocus
             required
             name="email"
@@ -26,7 +26,7 @@
     </x-mops::form.label>
 
     <x-mops::form.label :name="__('mops::auth.fields.password')">
-        <input
+        <x-mops::form.input
             required
             name="password"
             type="password"
@@ -37,7 +37,7 @@
     </x-mops::form.label>
 
     <x-mops::form.label :name="__('mops::auth.fields.password-confirmation')">
-        <input
+        <x-mops::form.input
             required
             name="password_confirmation"
             type="password"
