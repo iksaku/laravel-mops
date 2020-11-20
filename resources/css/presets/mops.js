@@ -25,6 +25,7 @@ module.exports = {
     },
 
     plugins: [
+        require('@tailwindcss/forms'),
         require('@iksaku/tailwindcss-plugins/src/hocus'),
         require('@iksaku/tailwindcss-plugins/src/smoothScroll')
     ]
