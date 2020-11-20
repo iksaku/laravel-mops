@@ -135,6 +135,7 @@ class InstallCommand extends Command
             return array_merge(
                 [
                     '@iksaku/tailwindcss-plugins' => '^2.0.1',
+                    '@tailwindcss/forms' => '^0.2.1',
                     'alpinejs' => '^2.7.0',
                     'autoprefixer' => '^9',
                     'postcss' => '^7',
