@@ -30,7 +30,7 @@
         <x-mops::card
             {{
                 $attributes->except('x-data')->merge([
-                    'class' => 'relative rounded-md',
+                    'class' => 'relative w-full max-w-md rounded-md',
                     'x-show' => 'isOpen',
                     'x-transition:enter' => 'transform ease-out duration-200',
                     'x-transition:enter-start' => 'translate-y-full sm:translate-y-0 sm:scale-95 sm:opacity-0',
@@ -41,8 +41,8 @@
                 ])
             }}
         >
-            <div class="divide-y divide-gray-300 -m-4 sm:-mx-6">
-                <div class="flex items-center justify-between p-4 sm:px-6">
+            <div class="-mx-4 sm:-mx-6">
+                <div class="flex items-center justify-between px-4 sm:px-6">
                     <div class="font-semibold leading-none">
                         @isset($title)
                             {{ $title }}
@@ -50,19 +50,19 @@
                     </div>
 
                     <button
-                        class="text-gray-400 hocus:text-red-500 text-2xl font-bold leading-none focus:shadow-outline focus:outline-none"
+                        class="text-gray-400 hocus:text-red-500 text-2xl font-bold leading-none focus:ring focus:outline-none"
                         @click="close()"
                     >
                         &times;
                     </button>
                 </div>
 
-                <div class="p-4 sm:px-6">
+                <div class="px-4 sm:px-6">
                     {{ $slot }}
                 </div>
 
                 @isset($footer)
-                    <div class="p-4 sm:px-6">
+                    <div class="px-4 sm:px-6">
                         {{ $footer }}
                     </div>
                 @endisset

@@ -15,7 +15,7 @@
             $attributes->except('x-data')->merge([
                 'x-cloak',
                 'x-show' => 'isOpen',
-                'class' => 'absolute z-20 min-w-full bg-white whitespace-nowrap rounded-md shadow-lg mt-2',
+                'class' => 'absolute z-20 min-w-full whitespace-nowrap rounded-md shadow-lg mt-2',
 
                 'x-transition:enter' => 'transform duration-100 ease-out',
                 'x-transition:enter-start' => 'opacity-0 scale-90',
@@ -26,7 +26,7 @@
             ])
         }}
     >
-        <div class="rounded-md shadow-xs overflow-x-hidden">
+        <div class="rounded-md overflow-x-hidden">
             {{ $slot }}
         </div>
     </div>
