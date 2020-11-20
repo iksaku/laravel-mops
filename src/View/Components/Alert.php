@@ -9,7 +9,10 @@ use Illuminate\View\Component;
 
 class Alert extends Component
 {
-    use Macroable;
+    use Macroable {
+        macro as private;
+        hasMacro as private;
+    }
 
     private bool $shouldRender = true;
     private ?string $key = null;
@@ -50,7 +53,7 @@ class Alert extends Component
         $this->setupAlertPresets();
 
         try {
-            $this->{self::methodFor($type)}();
+            $this->{self::typeMethodName($type)}();
         } catch (\BadMethodCallException $e) {
             throw new \BadMethodCallException(sprintf(
                 'Unable to find alert configuration for type %s.', $type
@@ -68,7 +71,17 @@ class Alert extends Component
         return view('mops::components.alert');
     }
 
-    public static function methodFor(string $type): string
+    public static function addType(string $name, callable $setup): void
+    {
+        self::macro(self::typeMethodName($name), $setup);
+    }
+
+    public static function hasType(string $name): bool
+    {
+        return self::hasMacro(self::typeMethodName($name));
+    }
+
+    private static function typeMethodName(string $type): string
     {
         return (string) Str::of($type)
             ->lower()
@@ -108,10 +121,8 @@ class Alert extends Component
         ];
 
         foreach ($presets as $type => $closure) {
-            $methodName = self::methodFor($type);
-
-            if (!self::hasMacro($methodName)) {
-                self::macro($methodName, $closure);
+            if (!self::hasType($type)) {
+                self::addType($type, $closure);
             }
         }
     }

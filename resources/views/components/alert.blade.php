@@ -1,7 +1,11 @@
+@if($closeable)
+    <x-mops::include.alpine />
+@endif
+
 <div
     x-data="{ show: true }"
     x-show="show"
-    {{ $attributes->merge(['class' => "w-full flex items-center justify-between {$backgroundColor} {$textColor} border {$borderColor} p-4 sm:px-6 rounded-md mb-4 space-x-2"]) }}
+    {{ $attributes->merge(['class' => "flex items-center justify-between {$backgroundColor} {$textColor} border {$borderColor} px-4 py-2 rounded-md mb-4 space-x-4"]) }}
     role="alert"
 >
     <div class="flex-grow flex items-start space-x-2">
