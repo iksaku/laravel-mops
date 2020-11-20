@@ -9,12 +9,12 @@
 
 @section('contents')
     <x-mops::form.label :name="__('mops::auth.fields.password')">
-        <x-mops::form.input
-                required
-                name="password"
-                type="password"
-                autocomplete="current-password"
-                placeholder="*********"
+        <input
+            required
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="*********"
         />
         <x-mops::form.error for="password" />
     </x-mops::form.label>

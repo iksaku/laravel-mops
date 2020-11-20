@@ -9,10 +9,10 @@
     @if(session()->get('status') === 'verification-link-sent')
         <div class="-m-4 mb-0 sm:-mx-6">
             <x-mops::alert
-                    class="text-center rounded-b-none"
-                    type="success"
-                    :message="__('mops::auth.email.verification.sent')"
-                    :closeable="false"
+                class="text-center rounded-b-none"
+                type="success"
+                :message="__('mops::auth.email.verification.sent')"
+                :closeable="false"
             />
         </div>
     @endif
