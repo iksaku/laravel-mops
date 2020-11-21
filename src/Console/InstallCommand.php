@@ -67,8 +67,8 @@ class InstallCommand extends Command
         // Tweak Fortify Configuration
         $this->comment('[Fortify] Tweaking Configuration', OutputInterface::VERBOSITY_DEBUG);
         Util::replaceInFile(
-            ['// Features::emailVerification(),', 'Features::updateProfileInformation(),', 'Features::updatePasswords(),'],
-            ['Features::emailVerification(),', '// Features::updateProfileInformation(),', '// Features::updatePasswords(),'],
+            ['Features::updateProfileInformation(),', 'Features::updatePasswords(),'],
+            ['// Features::updateProfileInformation(),', '// Features::updatePasswords(),'],
             config_path('fortify.php')
         );
 
