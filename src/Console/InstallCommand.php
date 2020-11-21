@@ -64,6 +64,14 @@ class InstallCommand extends Command
             fn ($search, $file_contents) => !Str::contains($file_contents, 'App\Providers\FortifyServiceProvider::class')
         );
 
+        // Tweak Fortify Configuration
+        $this->comment('[Fortify] Tweaking Configuration', OutputInterface::VERBOSITY_DEBUG);
+        Util::replaceInFile(
+            ['// Features::emailVerification(),', 'Features::updateProfileInformation(),', 'Features::updatePasswords(),'],
+            ['Features::emailVerification(),', '// Features::updateProfileInformation(),', '// Features::updatePasswords(),'],
+            config_path('fortify.php')
+        );
+
         $this->info('[Fortify] Laravel Fortify has been configured.');
     }
 
@@ -113,10 +121,11 @@ class InstallCommand extends Command
             });
 
         // Publish Livewire Configuration.
-        $this->comment('[TALLStack] Tweaking Livewire configuration...', OutputInterface::VERBOSITY_DEBUG);
+        $this->comment('[TALLStack] Publishing Livewire configuration...', OutputInterface::VERBOSITY_DEBUG);
         $this->callSilent('vendor:publish', ['--tag' => 'livewire:config', '--force' => true]);
 
-        // Tweak Livewire Initial Configuration.
+        // Tweak Livewire Configuration.
+        $this->comment('[TALLStack] Tweaking Livewire configuration...', OutputInterface::VERBOSITY_DEBUG);
         Util::replaceInFile(
             ["'class_namespace' => 'App\\\\Http\\\\Livewire'", "'view_path' => resource_path('views/livewire')"],
             ["'class_namespace' => 'App\\\\Http\\\\Controllers'", "'view_path' => resource_path('views')"],
