@@ -10,7 +10,7 @@
                     @isset($sidebarIcon)
                         {{ $sidebarIcon }}
                     @else
-                        <x-heroicon-s-menu class="w-6 h-6" />
+                        <x-heroicon-s-menu class="w-6" />
                     @endisset
                 </button>
 
