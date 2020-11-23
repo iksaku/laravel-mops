@@ -4,7 +4,8 @@
             route="dashboard.index"
             :highlightChildren="false"
         >
-            Dashboard
+            <x-heroicon-s-home />
+            <span>Dashboard</span>
         </x-mops::dashboard.sidebar.link>
     </x-mops::dashboard.sidebar.section>
 
