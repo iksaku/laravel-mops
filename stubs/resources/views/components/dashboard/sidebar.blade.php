@@ -1,8 +1,8 @@
 <x-mops::dashboard.sidebar>
     <x-mops::dashboard.sidebar.section>
         <x-mops::dashboard.sidebar.link
-                href="/"
-                :active="in_route('dashboard.index')"
+            route="dashboard.index"
+            :highlightChildren="false"
         >
             Dashboard
         </x-mops::dashboard.sidebar.link>

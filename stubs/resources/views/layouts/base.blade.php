@@ -14,7 +14,7 @@
         @endif
 
         {{-- Favicon --}}
-		<link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
+        <link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
 
         {{-- Styles --}}
         <link rel="stylesheet" href="{{ url(mix('css/app.css')) }}">
