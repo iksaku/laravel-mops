@@ -13,7 +13,9 @@
             class="w-full flex-grow flex flex-col items-center justify-start sm:px-4 lg:px-8 py-4 space-y-8"
         >
             <div class="w-full sm:max-w-md flex flex-col items-center text-center space-y-2 px-4 sm:px-0">
-                <x-logo class="w-24 h-24" />
+                <a href="/">
+                    <x-logo class="w-24 h-24"/>
+                </a>
 
                 <h1 class="text-4xl font-bold">
                     @yield('title')
