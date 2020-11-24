@@ -112,14 +112,6 @@ class InstallCommand extends Command
 
         $this->comment('[TALLStack] Part 1: Composer Packages...');
 
-        // Install Livewire and Sanctum.
-        $this->comment('[TALLStack] Installing composer packages', OutputInterface::VERBOSITY_DEBUG);
-        (new Process(['composer', 'require', 'livewire/livewire:^2.3.0', 'laravel/sanctum:^2.6.0'], base_path()))
-            ->setTimeout(null)
-            ->run(function ($type, $output) {
-                $this->output->write($output);
-            });
-
         // Publish Livewire Configuration.
         $this->comment('[TALLStack] Publishing Livewire configuration...', OutputInterface::VERBOSITY_DEBUG);
         $this->callSilent('vendor:publish', ['--tag' => 'livewire:config', '--force' => true]);
