@@ -41,7 +41,7 @@
                     @yield('contents')
 
                     <div class="w-full flex justify-center">
-                        <x-mops::button type="submit" class="w-full bg-blue-500 hocus:bg-blue-700 text-white font-bold">
+                        <x-mops::button type="submit" class="w-full justify-center bg-blue-500 hocus:bg-blue-700 text-white font-bold">
                             @yield('submit')
                         </x-mops::button>
                     </div>
