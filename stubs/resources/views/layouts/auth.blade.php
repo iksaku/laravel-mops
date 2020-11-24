@@ -3,7 +3,7 @@
 <x-mops::include.alpine />
 
 @section('body')
-    <div class="w-full min-h-screen flex flex-col bg-gray-200">
+    <div class="w-full min-h-screen flex flex-col bg-gray-100">
         @auth
             <x-mops::auth.header />
         @endauth
