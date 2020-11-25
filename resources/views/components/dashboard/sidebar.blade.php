@@ -19,7 +19,7 @@
     >
         <div class="flex items-center justify-between text-2xl px-4 py-2">
             <div class="flex-grow lg:text-center font-bold">
-                {{ config('app.name') }}
+                {{ $title ?? config('app.name') }}
             </div>
 
             <button @click="isOpen = false" class="lg:hidden font-bold leading-none">
