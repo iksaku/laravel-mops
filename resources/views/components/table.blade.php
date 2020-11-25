@@ -28,7 +28,9 @@
                 </table>
             </div>
 
-            {{ $for->links() }}
+            @if($for->hasPages())
+                {{ $for->links() }}
+            @endif
         @endif
     </div>
 </div>
