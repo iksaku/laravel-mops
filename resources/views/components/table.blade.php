@@ -3,7 +3,7 @@
 @props(['for'])
 
 <div class="w-full -my-2 py-2">
-    <div class="w-full flex flex-col bg-white sm:rounded-md shadow divide-y divide-gray-200 overflow-y-hidden">
+    <div class="w-full flex flex-col bg-white sm:rounded-md border border-gray-300 divide-y divide-gray-200 overflow-y-hidden">
         @isset($actions)
             {{-- Actions are items placed inside the table card, but above the table --}}
             <div class="px-6 py-4">
