@@ -40,6 +40,12 @@ trait SimpleSearch
         return $query->where(function (Builder $query) use ($column, $searchTerm) {
             // Wrap single column in an array if needed.
             foreach (Arr::wrap($column) as $attribute => $operator) {
+                // If a closure is given, give control over the query to the closure.
+                if ($operator instanceof \Closure) {
+                    $operator($query);
+                    continue;
+                }
+
                 // Try to use a 'column' => 'operator' scheme.
                 if (!is_string($attribute)) {
                     // If in this loop run, the 'column' is not a string,
