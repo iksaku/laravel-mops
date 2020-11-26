@@ -51,11 +51,11 @@ trait SimpleSearch
 
                 if ($operator === 'LIKE') {
                     // Surround the 'search term' with SQL wildcards (%).
-                    $searchTerm = "%{$searchTerm}%";
+                    $tmpTerm = "%{$searchTerm}%";
                 }
 
                 // Append query along with previous queries.
-                $query->orWhere($attribute, $operator, $searchTerm);
+                $query->orWhere($attribute, $operator, $tmpTerm ?? $searchTerm);
             }
         });
     }
