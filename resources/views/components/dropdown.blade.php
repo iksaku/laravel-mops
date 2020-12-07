@@ -13,7 +13,7 @@
     <div
         {{
             $attributes->except('x-data')->merge([
-                'x-cloak',
+                'x-cloak' => '',
                 'x-show' => 'isOpen',
                 'class' => 'absolute z-20 min-w-full whitespace-nowrap rounded-md shadow-lg mt-2',
 
