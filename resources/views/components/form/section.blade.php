@@ -15,7 +15,7 @@
     </div>
 
     <div class="w-full flex-grow">
-        <x-mops::card class="md:max-w-lg">
+        <x-mops::card>
             {{ $slot }}
         </x-mops::card>
     </div>
