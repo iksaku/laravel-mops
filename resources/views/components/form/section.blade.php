@@ -14,8 +14,8 @@
         @endisset
     </div>
 
-    <div class="w-full md:max-w-lg flex-grow">
-        <x-mops::card>
+    <div class="w-full flex-grow">
+        <x-mops::card class="md:max-w-lg">
             {{ $slot }}
         </x-mops::card>
     </div>
