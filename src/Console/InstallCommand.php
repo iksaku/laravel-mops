@@ -137,11 +137,10 @@ class InstallCommand extends Command
                 [
                     '@iksaku/tailwindcss-plugins' => '^2.0.1',
                     '@tailwindcss/forms' => '^0.2.1',
-                    'alpinejs' => '^2.7.0',
-                    'autoprefixer' => '^9',
-                    'postcss' => '^7',
-                    'tailwindcss' => 'npm:@tailwindcss/postcss7-compat',
-                    'vue-template-compiler' => '^2.6.10'
+                    'alpinejs' => '^2.8.0',
+                    'autoprefixer' => '^10.0.2',
+                    'postcss' => '^8.0.9',
+                    'tailwindcss' => '^2.0.2'
                 ],
                 Arr::except(
                     $packages,
