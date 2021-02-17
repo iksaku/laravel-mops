@@ -26,7 +26,7 @@
             ])
         }}
     >
-        <div class="rounded-md overflow-x-hidden">
+        <div class="ring-1 ring-black ring-opacity-5 rounded-md overflow-x-hidden">
             {{ $slot }}
         </div>
     </div>
