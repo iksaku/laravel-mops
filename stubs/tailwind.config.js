@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
     purge: [],
 
@@ -9,6 +11,11 @@ module.exports = {
     ],
 
     theme: {
+        colors: {
+            inherit: 'inherit',
+            ...defaultTheme.colors
+        },
+
         extend: {},
     },
 
