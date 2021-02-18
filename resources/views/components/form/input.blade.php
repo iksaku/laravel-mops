@@ -2,5 +2,5 @@
 
 <input
     type="{{ $type }}"
-    {{ $attributes->merge(['class' => 'w-full border-gray-300 rounded-md']) }}
+    {{ $attributes->merge(['class' => 'w-full border-gray-300 focus:border-transparent focus:ring rounded-md']) }}
 >
