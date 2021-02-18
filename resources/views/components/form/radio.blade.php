@@ -2,6 +2,6 @@
 
 <input
     type="radio"
-    {{ $attributes->merge(['class' => 'rounded-full']) }}
+    {{ $attributes->merge(['class' => 'border-gray-300 rounded-full']) }}
     @if($checked) checked @endif
 >
